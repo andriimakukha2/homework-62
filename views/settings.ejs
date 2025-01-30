@@ -1,0 +1,12 @@
+<%- include('layout') %>
+
+<h1>Settings</h1>
+
+<form action="/settings/set-theme" method="POST">
+    <label for="theme">Choose a theme:</label>
+    <select name="theme" id="theme">
+        <option value="light" <%= theme === 'light' ? 'selected' : '' %>>Light theme</option>
+        <option value="dark" <%= theme === 'dark' ? 'selected' : '' %>>Dark theme</option>
+    </select>
+    <button type="submit">Save</button>
+</form>

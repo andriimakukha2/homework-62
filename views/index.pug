@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+    h1 Welcome to the Website!
+    p Current theme: #{theme || 'light'}
+    button(onclick="setTheme('dark')") Dark theme
+    button(onclick="setTheme('light')") Light theme
+
+    script.
+        function setTheme(theme) {
+            fetch('/settings/set-theme', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ theme })
+            }).then(() => location.reload());
+        }

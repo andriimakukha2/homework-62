@@ -1,0 +1,35 @@
+<%- include('layout', { body: '<h1>Authorization</h1>', theme: theme }) %>
+
+<!-- Повідомлення про помилки -->
+<% if (error) { %>
+    <p style="color: red;"><%= error %></p>
+<% } %>
+
+<!-- Форма для реєстрації -->
+<h2>Register</h2>
+<form action="/auth/register" method="POST">
+    <label for="register-username">Enter username:</label>
+    <input type="text" name="username" id="register-username" required>
+
+    <label for="register-password">Enter password:</label>
+    <input type="password" name="password" id="register-password" required>
+
+    <label for="register-password-confirm">Confirm password:</label>
+    <input type="password" name="passwordConfirm" id="register-password-confirm" required>
+
+    <button type="submit">Register</button>
+</form>
+
+<hr>
+
+<!-- Форма для входу -->
+<h2>Login</h2>
+<form action="/auth/login" method="POST">
+    <label for="login-username">Enter username:</label>
+    <input type="text" name="username" id="login-username" required>
+
+    <label for="login-password">Enter password:</label>
+    <input type="password" name="password" id="login-password" required>
+
+    <button type="submit">Login</button>
+</form>
